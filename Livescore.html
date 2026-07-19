@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LiveScore Stream Matrix Dashboard</title>
+    <!-- Premium Tailwind CSS CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body class="bg-[#0f172a] font-sans text-slate-200 min-h-screen flex flex-col justify-between">
+
+    <!-- Premium Dark Nav Module Section -->
+    <header class="bg-slate-900 border-b border-slate-800 shadow-xl py-4.5 px-4 sticky top-0 z-50">
+        <div class="container mx-auto max-w-4xl flex items-center justify-between">
+            <div class="flex items-center gap-2">
+                <span class="w-2.5 h-2.5 bg-rose-500 rounded-full animate-ping"></span>
+                <h1 class="text-xl font-black tracking-wider uppercase text-white bg-clip-text">JEmpire <span class="text-rose-500">LiveScore</span></h1>
+            </div>
+            <div class="bg-slate-800 text-slate-400 text-[11px] font-bold uppercase tracking-widest px-3 py-1.5 rounded-lg border border-slate-700">
+                Data Stream Engine Active
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Workspace Frame Container Block -->
+    <main class="flex-grow container mx-auto max-w-4xl px-4 py-6">
+
+        <!-- Top Sticky Monetization Wrapper Slot -->
+        <div class="w-full bg-slate-900/80 rounded-xl min-h-[90px] mb-6 flex items-center justify-center text-xs text-slate-600 border border-dashed border-slate-800 overflow-hidden">
+            <!-- PLACE YOUR ADSTERRA BANNER CODE BELOW THIS COMMENT -->
+            <div id="ad-top-placeholder">[Premium Sponsored Advertisement Slot]</div>
+        </div>
+
+        <!-- Active Fixtures Board Layout Panel -->
+        <div class="bg-slate-900 rounded-2xl border border-slate-800 shadow-2xl overflow-hidden">
+            <div class="bg-gradient-to-r from-slate-800 to-slate-900 px-5 py-4 border-b border-slate-800 flex items-center justify-between">
+                <span class="text-xs font-bold uppercase tracking-wider text-slate-400">🔥 Matchday Fixtures Stream</span>
+                <button onclick="simulateMatchEvents()" class="bg-rose-600 hover:bg-rose-700 text-white text-xs font-bold px-3 py-1.5 rounded-lg shadow-md transition active:scale-95 cursor-pointer">
+                    Simulate Live Actions
+                </button>
+            </div>
+
+            <!-- Score Interface Stack System Output Segment -->
+            <div id="scoreContainer" class="divide-y divide-slate-800/60">
+                
+                <!-- Match Card Row 1 -->
+                <div class="p-5 flex items-center justify-between hover:bg-slate-800/20 transition group">
+                    <div class="flex-1 text-right font-semibold text-sm pr-4 group-hover:text-white transition">Arsenal</div>
+                    <div class="flex flex-col items-center justify-center px-4 py-1.5 bg-slate-950 border border-slate-800 rounded-xl min-w-[70px]">
+                        <span id="score1" class="text-base font-black text-rose-400 tracking-wider">0 - 0</span>
+                        <span class="text-[9px] font-bold text-emerald-400 uppercase tracking-widest mt-0.5 animate-pulse">12' Live</span>
+                    </div>
+                    <div class="flex-1 text-left font-semibold text-sm pl-4 group-hover:text-white transition">Chelsea</div>
+                </div>
+
+                <!-- Match Card Row 2 -->
+                <div class="p-5 flex items-center justify-between hover:bg-slate-800/20 transition group">
+                    <div class="flex-1 text-right font-semibold text-sm pr-4 group-hover:text-white transition">Real Madrid</div>
+                    <div class="flex flex-col items-center justify-center px-4 py-1.5 bg-slate-950 border border-slate-800 rounded-xl min-w-[70px]">
+                        <span id="score2" class="text-base font-black text-slate-400 tracking-wider">2 - 1</span>
+                        <span class="text-[9px] font-bold text-slate-500 uppercase tracking-widest mt-0.5">HT</span>
+                    </div>
+                    <div class="flex-1 text-left font-semibold text-sm pl-4 group-hover:text-white transition">Barcelona</div>
+                </div>
+
+                <!-- Match Card Row 3 -->
+                <div class="p-5 flex items-center justify-between hover:bg-slate-800/20 transition group">
+                    <div class="flex-1 text-right font-semibold text-sm pr-4 group-hover:text-white transition">Enyimba FC</div>
+                    <div class="flex flex-col items-center justify-center px-4 py-1.5 bg-slate-950 border border-slate-800 rounded-xl min-w-[70px]">
+                        <span id="score3" class="text-base font-black text-rose-400 tracking-wider">1 - 0</span>
+                        <span class="text-[9px] font-bold text-emerald-400 uppercase tracking-widest mt-0.5 animate-pulse">74' Live</span>
+                    </div>
+                    <div class="flex-1 text-left font-semibold text-sm pl-4 group-hover:text-white transition">Rangers International</div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Bottom Sticky Monetization Wrapper Slot -->
+        <div class="w-full bg-slate-900/80 rounded-xl min-h-[90px] mt-6 flex items-center justify-center text-xs text-slate-600 border border-dashed border-slate-800 overflow-hidden">
+            <!-- PLACE YOUR SECOND ADSTERRA BANNER CODE BELOW THIS COMMENT -->
+            <div id="ad-bottom-placeholder">[Premium Sponsored Advertisement Slot]</div>
+        </div>
+
+    </main>
+
+    <!-- Footer Module Segment Layout -->
+    <footer class="bg-slate-950 border-t border-slate-900 text-slate-600 text-xs py-5 text-center">
+        <p>&copy; 2026 JEmpire Solutions. Real-Time Sports Syndication Architecture.</p>
+    </footer>
+
+    <!-- Interactive Data Stream Simulator Controller Logic -->
+    <script>
+        function simulateMatchEvents() {
+            // Pick a random match row target pointer execution line
+            const matchIndex = Math.floor(Math.random() * 3) + 1;
+            const scoreElement = document.getElementById(`score${matchIndex}`);
+            
+            // Extract current values running live arrays
+            let structuralParts = scoreElement.innerText.split(" - ");
+            let homeScore = parseInt(structuralParts[0]);
+            let awayScore = parseInt(structuralParts[1]);
+
+            // Increment randomly picked parameter flags
+            if (Math.random() > 0.5) {
+                homeScore++;
+            } else {
+                awayScore++;
+            }
+
+            scoreElement.innerText = `${homeScore} - ${awayScore}`;
+            scoreElement.classList.add("text-amber-400");
+            setTimeout(() => {
+                scoreElement.classList.remove("text-amber-400");
+            }, 1000);
+        }
+
+        // Run automated refresh intervals every few seconds natively
+        setInterval(simulateMatchEvents, 9000);
+    </script>
+</body>
+</html>
